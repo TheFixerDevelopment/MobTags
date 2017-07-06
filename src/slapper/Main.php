@@ -29,7 +29,7 @@ use pocketmine\utils\TextFormat;
 use slapper\entities\other\SlapperBoat;
 use slapper\entities\other\SlapperDragonFireball;
 use slapper\entities\other\SlapperFishingHook;
-use slapper\entities\other\SlapperXPorb;
+use slapper\entities\other\SlapperXPOrb;
 use slapper\entities\other\SlapperFireball;
 use slapper\entities\other\SlapperEndCrystal;
 use slapper\entities\other\SlapperFallingSand;
