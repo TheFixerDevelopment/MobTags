@@ -39,7 +39,6 @@ use slapper\entities\other\SlapperMinecartHopper;
 use slapper\entities\other\SlapperMinecartChest;
 use slapper\entities\other\SlapperWitherSkull;
 use slapper\entities\other\SlapperPrimedTNT;
-use slapper\entities\other\SlapperxpOrp
 use slapper\entities\SlapperBat;
 use slapper\entities\SlapperBlaze;
 use slapper\entities\SlapperCaveSpider;
