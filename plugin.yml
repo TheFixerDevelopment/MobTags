@@ -1,49 +1,48 @@
 name: MobTags
-author: xXSirButterXx
+author: Zeao
 version: 1.0.0
-description: MobTags, the NPC plugin for PocketMine/Genisys
+description: MobTags, the NPC plugin for PocketMine/Genisys, originally made from the Slappers plugin. Same arguments / usages, just different name and start of command.
 main: slapper\Main
-api: [3.0.0-ALPHA4, 3.0.0-ALPHA5, 3.0.0-ALPHA6, 3.0.1]
-website: https://github.com/xXSirButterXx/MobTags
+api: [3.0.0-ALPHA4, 3.0.0-ALPHA5, 3.0.0-ALPHA6, 3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9, 3.0.1]
 
 commands:
   mobtags:
-    description: Create a MobTag, or edit an existing one!
+    description: Create a MobTag / Slapper, or edit an existing one! Permission: mobtags.command
     usage: "/mobtags [args]..."
     permission: mobtags.command
   rca:
-    description: Execute a command as someone else!
+    description: Execute a command as someone else! xD Permission: mobtags.rca
     usage: "/rca <player> <command>"
     permission: mobtags.rca
     
 permissions:
   mobtags:
-    description: Allow using all MobTag Properties
+    description: Allow using all MobTag / Slapper Properties. Permission: mobtags
     default: op
   mobtags.command:
-    description: Allow using /mobtags
+    description: Allows you to use /mobtags - Permission: mobtags.command
     default: op
   mobtags.create:
-    description: Allow using command /mobtags create
+    description: Allow using command /mobtags create - Permission: mobtags.create
     default: op
   mobtags.edit:
-    description: Allow editing MobTag entity data with /mobtags edit
+    description: Allow editing MobTag entity data with /mobtags edit - Permission: mobtags.edit
     default: op
   mobtags.rca:
-    description: Allow running commands as other players
+    description: Allow running commands as other players - Permission: mobtags.rca
     default: op
   mobtags.remove:
-    description: Allow removing MobTag entities with /mobtags remove [id]
+    description: Allow removing MobTag entities with /mobtags remove [id] - Permission: mobtags.remove
     default: op
   mobtags.id:
-    description: Allow viewing entity ID
+    description: Allow viewing entity ID - Permission: mobtags.id
     default: op
   mobtags.help:
-    description: Allow viewing MobTags help page
+    description: Allow viewing MobTags / Slapper help page - Permission: mobtags.help
     default: op
   mobtags.nothing:
-    description: Allow doing nothing
+    description: Allow doing nothing - Permission: mobtags.nothing
     default: op
   mobtags.seeId:
-    description: Allow seeing entity IDs under the names of Slapper NPCs
+    description: Allow seeing entity IDs under the names of Slapper NPCs - Permission: mobtags.seeid
     default: false
