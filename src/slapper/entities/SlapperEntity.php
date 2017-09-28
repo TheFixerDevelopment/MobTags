@@ -84,11 +84,8 @@ class SlapperEntity extends Entity {
     }
 
     public function getDisplayName(Player $player){
-            $vars = [
- 			"{name}" => $player->getName(),
- 			"{display_name}" => $player->getName(),
- 			"{nametag}" => $player->getNameTag()
- 		];
+            return str_ireplace(["{name}", "{display_name}", "{nametag}"], [$player->getName(), $player->getDisplayName(), $player->getNametag()], $player->hasPermission("slapper.seeId") ? $this->getNameTag() . "\n" . \pocketmine\utils\TextFormat::GREEN . "Entity ID: " . $this->getId() : $this->getNameTag());
+ 
         return str_replace(array_keys($vars), array_values($vars), $this->getNameTag());
     }
 
