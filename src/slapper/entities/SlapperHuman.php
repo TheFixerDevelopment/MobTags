@@ -66,9 +66,7 @@ class SlapperHuman extends Human {
             $pk->uuid = $uuid;
             $pk->username = "";
             $pk->eid = $entityId;
-            $pk->x = $this->x;
-            $pk->y = $this->y;
-            $pk->z = $this->z;
+            $pk->position = $this->asVector3();
             $pk->yaw = $this->yaw;
             $pk->pitch = $this->pitch;
             $pk->item = $this->getInventory()->getItemInHand();
@@ -84,6 +82,11 @@ class SlapperHuman extends Human {
     }
 
     public function getDisplayName(Player $player) {
-        return str_ireplace(["{name}", "{display_name}", "{nametag}"], [$player->getName(), $player->getDisplayName(), $player->getNametag()], $player->hasPermission("slapper.seeId") ? $this->getNameTag() . "\n" . \pocketmine\utils\TextFormat::GREEN . "Entity ID: " . $this->getId() : $this->getNameTag());
+            $vars = [
+ 			"{name}" => $player->getName(),
+ 			"{display_name}" => $player->getName(),
+ 			"{nametag}" => $player->getNameTag()
+ 		];
+        return str_replace(array_keys($vars), array_values($vars), $this->getNameTag());
     }
 }
