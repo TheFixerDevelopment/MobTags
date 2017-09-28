@@ -741,15 +741,15 @@ class Main extends PluginBase implements Listener {
         if ($entity instanceof SlapperEntity || $entity instanceof SlapperHuman) {
             $event->setCancelled(true);
             if (!$event instanceof EntityDamageByEntityEvent) {
-                return;
+                return true;
             }
             $damager = $event->getDamager();
             if (!$damager instanceof Player) {
-                return;
+                return true;
             }
             $this->getServer()->getPluginManager()->callEvent($event = new SlapperHitEvent($entity, $damager));
             if($event->isCancelled()) {
-            	return;
+            	return true;
             }
             $damagerName = $damager->getName();
             if (isset($this->hitSessions[$damagerName])) {
@@ -759,12 +759,12 @@ class Main extends PluginBase implements Listener {
                 $entity->close();
                 unset($this->hitSessions[$damagerName]);
                 $damager->sendMessage($this->prefix . "Entity removed.");
-                return;
+                return true;
             }
             if (isset($this->idSessions[$damagerName])) {
                 $damager->sendMessage($this->prefix . "Entity ID: " . $entity->getId());
                 unset($this->idSessions[$damagerName]);
-                return;
+                return true;
             }
             if (isset($entity->namedtag->Commands)) {
                 $server = $this->getServer();
