@@ -74,9 +74,7 @@ class SlapperEntity extends Entity {
         $pk = new AddEntityPacket();
         $pk->eid = $this->getId();
         $pk->type = $this->entityId;
-        $pk->x = $this->x;
-        $pk->y = $this->y + $this->offset;
-        $pk->z = $this->z;
+        $pk->position = $this->asVector3();
         $pk->yaw = $this->yaw;
         $pk->pitch = $this->pitch;
         $pk->metadata = $this->dataProperties;
@@ -86,7 +84,12 @@ class SlapperEntity extends Entity {
     }
 
     public function getDisplayName(Player $player){
-        return str_ireplace(["{name}", "{display_name}", "{nametag}"], [$player->getName(), $player->getDisplayName(), $player->getNametag()], $player->hasPermission("slapper.seeId") ? $this->getNameTag() . "\n" . \pocketmine\utils\TextFormat::GREEN . "Entity ID: " . $this->getId() : $this->getNameTag());
+            $vars = [
+ 			"{name}" => $player->getName(),
+ 			"{display_name}" => $player->getName(),
+ 			"{nametag}" => $player->getNameTag()
+ 		];
+        return str_replace(array_keys($vars), array_values($vars), $this->getNameTag());
     }
 
 }
